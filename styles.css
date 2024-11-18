@@ -1,0 +1,128 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+.bg {
+  width: 100%;
+  height: 100%;
+  background-image: url("bg_city.png");
+  background-size: cover;
+  background-position: center;
+  /* height: 100%; */
+  text-align: center;
+}
+img {
+  object-fit: cover;
+  width: 100%;
+}
+.airshipLR {
+  position: relative;
+  top: 20%;
+  width: 100%;
+  /* transform: translateY(15%); */
+  /* height: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: leftright 7s infinite alternate ease-in-out;
+}
+.airship {
+  position: absolute;
+  top: 0vw;
+  left: 10vw;
+  width: 80vw;
+  animation: updown 10s infinite alternate ease-in-out;
+}
+.airship img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  z-index: 1;
+}
+.billboard-mask {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  aspect-ratio: 3557 / 1282;
+  /* background-color: red; */
+  mask-image: url("blimp_screen_mask_5.png");
+  mask-size: cover;
+  z-index: 2;
+}
+.billboard {
+  position: absolute;
+  top: 22%;
+  left: 21.5%;
+  /* display: grid; */
+  /* place-content: center; */
+  transform: perspective(58vw) rotateX(1deg) rotateY(351deg) rotateZ(0.5deg);
+  z-index: 2;
+  /* border: 1px solid red; */
+  width: 45%;
+  height: 20vw;
+  overflow: hidden;
+}
+/* #billboard-title {
+  display: inline-block;
+  white-space: nowrap;
+  filter: blur(1px);
+  margin-top: 2vw;
+  font-size: 3vw;
+  font-weight: bold;
+  font-family: Arial, monospace;
+} */
+#billboard-text {
+  /* width: 100%; */
+  display: inline-block;
+  white-space: nowrap;
+  margin: 3.5vw 20vw;
+  animation: scrollText 20s infinite alternate linear;
+  filter: blur(1px);
+  font-size: 8vw;
+  font-weight: bold;
+  font-family: Arial, monospace;
+}
+.title {
+  position: absolute;
+  bottom: 10vh;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  font-size: 3vw;
+  font-weight: bold;
+}
+.title h1 {
+  margin: 0;
+}
+/* Give the airship a subtle up and down motion*/
+@keyframes updown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10vh);
+  }
+}
+@keyframes leftright {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-2vh);
+  }
+}
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
