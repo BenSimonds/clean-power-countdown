@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Home</title>
+    <title>Clean Power 2030</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,8 +16,8 @@
     <script type="module">
       import * as dateFns from "https://cdn.jsdelivr.net/npm/date-fns@4.1.0/+esm";
 
-      const bbText = document.getElementById("billboard-text");
-      const deadline = new Date("2030-12-31T23:59:59");
+      const bbTexts = document.getElementsByClassName("billboard-text");
+      const deadline = new Date("2030-01-01T00:00:00");
 
       let timeLeft = {
         days: 0,
@@ -27,15 +27,17 @@
       };
 
       function updateBillboard() {
-        bbText.innerHTML = `${timeLeft.days
-          .toString()
-          .padStart(4, " ")} DAYS ${timeLeft.hours
-          .toString()
-          .padStart(2, " ")} HOURS ${timeLeft.minutes
-          .toString()
-          .padStart(2, " ")} MINS ${timeLeft.seconds
-          .toString()
-          .padStart(2, " ")} SECS`;
+        for (let bbText of bbTexts) {
+          bbText.innerHTML = `${timeLeft.days
+            .toString()
+            .padStart(4, "\xa0")} DAYS ${timeLeft.hours
+            .toString()
+            .padStart(2, "\xa0")} HOURS ${timeLeft.minutes
+            .toString()
+            .padStart(2, "\xa0")} MINS ${timeLeft.seconds
+            .toString()
+            .padStart(2, "\xa0")} SECS`;
+        }
       }
 
       // update billboard once per second
@@ -56,11 +58,14 @@
       <div class="airshipLR">
         <div class="airship">
           <img src="blimp.png" />
-          <img src="blimp_screen.png" />
+          <!-- <img src="blimp_screen.png" /> -->
           <div class="billboard-mask">
             <div class="billboard">
               <!-- <span id="billboard-title">CLEAN POWER 2030</span> -->
-              <span id="billboard-text">_</span>
+              <span class="billboard-text"></span>
+            
+              <!-- Duplicate for animation loop -->
+              <span class="billboard-text"></span>
             </div>
           </div>
         </div>
