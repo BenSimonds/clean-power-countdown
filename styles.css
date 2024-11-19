@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #000;
-  color: #fff;
+  color: white;
   height: 100vh;
   max-height: 100vh;
   overflow: hidden;
@@ -16,7 +16,7 @@ body {
   background-size: cover;
   background-position: center;
   /* height: 100%; */
-  text-align: center;
+  /* text-align: center; */
 }
 img {
   object-fit: cover;
@@ -57,43 +57,75 @@ img {
   z-index: 2;
 }
 .billboard {
-  display: flex;
-  flex-wrap: nowrap;
+  /* Position and Transform for a bit of perspective */
   position: absolute;
   top: 22%;
   left: 21.5%;
-  /* display: grid; */
-  /* place-content: center; */
-  transform: perspective(58vw) rotateX(1deg) rotateY(351deg) rotateZ(0.5deg);
+  width: 33vw;
+  height: 14vw;
   z-index: 2;
+  transform: perspective(46vw) rotateX(1deg) rotateY(347deg) rotateZ(-0.5deg);
+  /* Divide up grid. */
+  position: relative;
+  margin: 1vw;
   /* border: 1px solid red; */
-  width: 45%;
-  height: 20vw;
+  max-height: 14vw;
+  overflow: hidden;
+  font-weight: bold;
+  --font-size: 6.3vw;
+}
+
+.billboard > * {
+  position: absolute;
+  overflow: hidden;
+  opacity: 0.9;
+  
+  /*  */
+  /* vertical-align: top; */
+  /* margin-top: -1vw; */
+  /* vertical-align: middle; */
+}
+
+.billboard #ndays {
+  top: 0;
+  left: 0;
+  font-size: var(--font-size);
+  /* text-align: center; */
+}
+.billboard #nhours {
+  top: calc(var(--font-size));
+  left: 0;
+  font-size: calc(var(--font-size) * 0.6);
+}
+.billboard #nmins {
+  top: calc(var(--font-size) * 1.6);
+  font-size: calc(var(--font-size) * 0.5);
+}
+.billboard #nsecsdiv {
+  top: calc(var(--font-size) + 0.3vw);
+  left: 20vw;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* display: grid; */
+  /* justify-items: start; */
+  /* align-items: center; */
+  /* grid-template-rows: 2fr 1fr; */
   overflow: hidden;
 }
-/* #billboard-title {
-  display: inline-block;
-  white-space: nowrap;
-  filter: blur(1px);
-  margin-top: 2vw;
-  font-size: 3vw;
-  font-weight: bold;
-  font-family: Arial, monospace;
-} */
-.billboard-text {
-  display: inline-block;
-  white-space: nowrap;
-  margin: 3.5vw 0vw;
-  padding-inline: 3.5vw;
-  animation: scrollText 8s infinite linear;
-  filter: blur(1px);
-  font-size: 8vw;
-  font-weight: bold;
-  font-family: Arial, monospace;
+.billboard #nsecsdiv div {
+  line-height: 1;
+  font-size: calc(var(--font-size) * 0.8);
+  overflow: auto;
 }
-.billboard-text:last-of-type {
-  /* color: red; */
+.billboard #nsecsdiv div:first-of-type {
+  margin-top: -0.3vw;
 }
+.billboard #nsecsdiv div:last-of-type {
+  font-size: calc(var(--font-size) * 0.3);
+}
+
 .title {
   position: absolute;
   bottom: 10vh;

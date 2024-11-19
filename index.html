@@ -16,7 +16,7 @@
     <script type="module">
       import * as dateFns from "https://cdn.jsdelivr.net/npm/date-fns@4.1.0/+esm";
 
-      const bbTexts = document.getElementsByClassName("billboard-text");
+      
       const deadline = new Date("2030-01-01T00:00:00");
 
       let timeLeft = {
@@ -27,17 +27,14 @@
       };
 
       function updateBillboard() {
-        for (let bbText of bbTexts) {
-          bbText.innerHTML = `${timeLeft.days
-            .toString()
-            .padStart(4, "\xa0")} DAYS ${timeLeft.hours
-            .toString()
-            .padStart(2, "\xa0")} HOURS ${timeLeft.minutes
-            .toString()
-            .padStart(2, "\xa0")} MINS ${timeLeft.seconds
-            .toString()
-            .padStart(2, "\xa0")} SECS`;
-        }
+        const ndays = document.getElementById("ndays");
+        ndays.innerText = `${timeLeft.days.toString().padEnd("\xa0", 2)} DAYS`;
+        const nhours = document.getElementById("nhours");
+        nhours.innerText = `${timeLeft.hours} HOURS`;
+        const nmins = document.getElementById("nmins");
+        nmins.innerText = `${timeLeft.minutes} MINUTES`;
+        const nsecs = document.getElementById("nsecs");
+        nsecs.innerText = timeLeft.seconds;
       }
 
       // update billboard once per second
@@ -61,11 +58,10 @@
           <!-- <img src="blimp_screen.png" /> -->
           <div class="billboard-mask">
             <div class="billboard">
-              <!-- <span id="billboard-title">CLEAN POWER 2030</span> -->
-              <span class="billboard-text"></span>
-            
-              <!-- Duplicate for animation loop -->
-              <span class="billboard-text"></span>
+              <span id="ndays">0 DAYS</span>
+              <span id="nhours">0 HOURS</span>
+              <span id="nmins">0 MINUTES</span>
+              <div id="nsecsdiv"><div id="nsecs">0</div> <div>SECONDS</div></div>
             </div>
           </div>
         </div>
