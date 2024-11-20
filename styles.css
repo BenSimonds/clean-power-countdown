@@ -59,47 +59,46 @@ img {
 .billboard {
   /* Position and Transform for a bit of perspective */
   position: absolute;
-  top: 22%;
+  top: 20%;
   left: 21.5%;
   width: 33vw;
-  height: 14vw;
+  height: 15vw;
   z-index: 2;
   transform: perspective(46vw) rotateX(1deg) rotateY(347deg) rotateZ(-0.5deg);
   /* Divide up grid. */
   position: relative;
   margin: 1vw;
   /* border: 1px solid red; */
-  max-height: 14vw;
   overflow: hidden;
   font-weight: bold;
-  --font-size: 6.3vw;
+  --font-size: 7vw;
+  /* font-size: var(--font-size); */
+  letter-spacing: calc(var(--font-size) / -15);
 }
 
 .billboard > * {
   position: absolute;
-  overflow: hidden;
-  opacity: 0.9;
-  
-  /*  */
-  /* vertical-align: top; */
-  /* margin-top: -1vw; */
-  /* vertical-align: middle; */
+  /* overflow: hidden; */
+  /* opacity: 0.9; */
 }
 
 .billboard #ndays {
   top: 0;
   left: 0;
   font-size: var(--font-size);
+  
   /* text-align: center; */
 }
 .billboard #nhours {
   top: calc(var(--font-size));
   left: 0;
   font-size: calc(var(--font-size) * 0.6);
+  letter-spacing: calc(var(--font-size) / -25);
 }
 .billboard #nmins {
   top: calc(var(--font-size) * 1.6);
   font-size: calc(var(--font-size) * 0.5);
+  letter-spacing: calc(var(--font-size) / -25);
 }
 .billboard #nsecsdiv {
   top: calc(var(--font-size) + 0.3vw);
@@ -112,7 +111,7 @@ img {
   /* justify-items: start; */
   /* align-items: center; */
   /* grid-template-rows: 2fr 1fr; */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .billboard #nsecsdiv div {
   line-height: 1;
@@ -124,6 +123,7 @@ img {
 }
 .billboard #nsecsdiv div:last-of-type {
   font-size: calc(var(--font-size) * 0.3);
+  letter-spacing: calc(var(--font-size) / -55);
 }
 
 .title {
