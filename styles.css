@@ -120,6 +120,7 @@ img {
 }
 .billboard #nsecsdiv div:first-of-type {
   margin-top: -0.3vw;
+  letter-spacing: calc(var(--font-size) / -25);
 }
 .billboard #nsecsdiv div:last-of-type {
   font-size: calc(var(--font-size) * 0.3);
