@@ -20,6 +20,7 @@
       const deadline = new Date("2030-01-01T00:00:00");
 
       let timeLeft = {
+        weeks: 0,
         days: 0,
         hours: 0,
         minutes: 0,
@@ -28,7 +29,9 @@
 
       function updateBillboard() {
         for (let bbText of bbTexts) {
-          bbText.innerHTML = `${timeLeft.days
+          bbText.innerHTML = `${timeLeft.weeks
+            .toString()
+            .padStart(3, "\xa0")} WEEKS ${timeLeft.days
             .toString()
             .padStart(4, "\xa0")} DAYS ${timeLeft.hours
             .toString()
@@ -44,7 +47,8 @@
       setInterval(() => {
         const now = new Date();
         timeLeft = {
-          days: dateFns.differenceInDays(deadline, now),
+          weeks: dateFns.differenceInWeeks(deadline, now),
+          days: dateFns.differenceInDays(deadline, now) % 7,
           hours: dateFns.differenceInHours(deadline, now) % 24,
           minutes: dateFns.differenceInMinutes(deadline, now) % 60,
           seconds: dateFns.differenceInSeconds(deadline, now) % 60,
@@ -63,7 +67,7 @@
             <div class="billboard">
               <!-- <span id="billboard-title">CLEAN POWER 2030</span> -->
               <span class="billboard-text"></span>
-            
+
               <!-- Duplicate for animation loop -->
               <span class="billboard-text"></span>
             </div>

@@ -85,7 +85,7 @@ img {
   white-space: nowrap;
   margin: 3.5vw 0vw;
   padding-inline: 3.5vw;
-  animation: scrollText 8s infinite linear;
+  animation: scrollText 15s infinite linear;
   filter: blur(1px);
   font-size: 8vw;
   font-weight: bold;
