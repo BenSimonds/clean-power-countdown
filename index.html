@@ -29,6 +29,7 @@
 
       function updateBillboard() {
         for (let bbText of bbTexts) {
+          // bbText.innerHTML = `${deadline.toLocaleDateString('en-UK', {timezone: "Europe/London", hour:"2-digit", minute:"2-digit", second:"2-digit"})}`;
           bbText.innerHTML = `${timeLeft.weeks
             .toString()
             .padStart(3, "\xa0")} WEEKS ${timeLeft.days
